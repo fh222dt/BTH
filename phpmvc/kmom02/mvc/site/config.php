@@ -41,6 +41,7 @@ $ly->config['language'] = 'en';
 */
 $ly->config['controllers'] = array(
   'index'     => array('enabled' => true,'class' => 'CCIndex'),
+  'developer'     => array('enabled' => true,'class' => 'CCDeveloper'),
 );
 
 /**
@@ -55,3 +56,12 @@ $ly->config['theme'] = array(
 * Set a base_url to use another than the default calculated
 */
 $ly->config['base_url'] = null;
+
+/**
+* What type of urls should be used?
+*
+* default      = 0      => index.php/controller/method/arg1/arg2/arg3
+* clean        = 1      => controller/method/arg1/arg2/arg3
+* querystring  = 2      => index.php?q=controller/method/arg1/arg2/arg3
+*/
+$ly->config['url_type'] = 1;
