@@ -50,3 +50,8 @@ $ly->config['theme'] = array(
   // The name of the theme in the theme directory
   'name'    => 'core',
 );
+
+/**
+* Set a base_url to use another than the default calculated
+*/
+$ly->config['base_url'] = null;
