@@ -13,12 +13,14 @@ if(!defined('__DIR__')) {
 
 // The contents of the kmoms navlinks
 $data['navkmom'] = array(
-  'kmom01'   => array('text'=>'kmom01',  'url'=>false),
+  'kmom01'   => array('text'=>'kmom01',  'url'=>'../kmom01'),
+  'kmom02'   => array('text'=>'kmom02',  'url'=>false),
 );
 
 // The contents of the navbar
 $data['navbar'] = array(
   'index'         => array('text'=>'Me',  'url'=>'index.php'),
   'report'   => array('text'=>'Redovisning',  'url'=>'report.php'),
+  'Wooly'   => array('text'=>'Wooly',  'url'=>'wooly.php'),
   'viewsource'    => array('text'=>'Källkod', 'url'=>'viewsource.php'),
 );

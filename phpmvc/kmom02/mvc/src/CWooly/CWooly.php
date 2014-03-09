@@ -1,20 +1,20 @@
 <?php
 /**
-* Main class for Lydia, holds everything.
+* Main class for Wooly, holds everything.
 *
-* @package LydiaCore
+* @package CWoolyCore
 */
-class CLydia implements ISingleton {
+class CWooly implements ISingleton {
 
    private static $instance = null;
 
    /**
     * Singleton pattern. Get the instance of the latest created object or create a new one.
-    * @return CLydia The instance of this class.
+    * @return CWooly The instance of this class.
     */
    public static function Instance() {
       if(self::$instance == null) {
-         self::$instance = new CLydia();
+         self::$instance = new CWooly();
       }
       return self::$instance;
    }
@@ -23,9 +23,9 @@ class CLydia implements ISingleton {
     * Constructor
     */
    protected function __construct() {
-      // include the site specific config.php and create a ref to $ly to be used by config.php
-      $ly = &$this;
-      require(LYDIA_SITE_PATH.'/config.php');
+      // include the site specific config.php and create a ref to $wo to be used by config.php
+      $wo = &$this;
+      require(WOOLY_SITE_PATH.'/config.php');
    }
 
     /**
@@ -93,21 +93,21 @@ class CLydia implements ISingleton {
 
     // Get the paths and settings for the theme
     $themeName    = $this->config['theme']['name'];
-    $themePath    = LYDIA_INSTALL_PATH . "/themes/{$themeName}";
+    $themePath    = WOOLY_INSTALL_PATH . "/themes/{$themeName}";
     $themeUrl      = $this->request->base_url . "themes/{$themeName}";
    
-    // Add stylesheet path to the $ly->data array
+    // Add stylesheet path to the $wo->data array
     $this->data['stylesheet'] = "{$themeUrl}/style.css";
 
     // Include the global functions.php and the functions.php that are part of the theme
-    $ly = &$this;
-    include (LYDIA_INSTALL_PATH . '/themes/functions.php');
+    $wo = &$this;
+    include (WOOLY_INSTALL_PATH . '/themes/functions.php');
     $functionsPath = "{$themePath}/functions.php";
     if(is_file($functionsPath)) {
       include $functionsPath;
     }
 
-    // Extract $ly->data to own variables and handover to the template file
+    // Extract $wo->data to own variables and handover to the template file
     extract($this->data);     
     include("{$themePath}/default.tpl.php");    
   }

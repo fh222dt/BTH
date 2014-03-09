@@ -3,19 +3,19 @@
 //
 // PHASE: BOOTSTRAP
 //
-define('LYDIA_INSTALL_PATH', dirname(__FILE__));
-define('LYDIA_SITE_PATH', LYDIA_INSTALL_PATH . '/site');
+define('WOOLY_INSTALL_PATH', dirname(__FILE__));
+define('WOOLY_SITE_PATH', WOOLY_INSTALL_PATH . '/site');
 
-require(LYDIA_INSTALL_PATH.'/src/CLydia/bootstrap.php');
+require(WOOLY_INSTALL_PATH.'/src/CWooly/bootstrap.php');
 
-$ly = CLydia::Instance();
+$wo = CWooly::Instance();
 
 //
 // PHASE: FRONTCONTROLLER ROUTE
 //
-$ly->FrontControllerRoute();
+$wo->FrontControllerRoute();
 
 //
 // PHASE: THEME ENGINE RENDER
 //
-$ly->ThemeEngineRender();
+$wo->ThemeEngineRender();
