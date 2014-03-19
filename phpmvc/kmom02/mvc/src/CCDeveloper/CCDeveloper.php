@@ -20,7 +20,7 @@ class CCDeveloper implements IController {
   public function Links() {  
     $this->Menu();
     
-    $wo = CWoowo::Instance();
+    $wo = CWooly::Instance();
     
     $url = 'developer/links';
     $current      = $wo->request->CreateUrl($url);
