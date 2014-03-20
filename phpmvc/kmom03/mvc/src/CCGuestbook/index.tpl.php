@@ -5,6 +5,7 @@
       <p>
         <label>Message: <br/>
         <textarea name='newEntry'></textarea></label>
+        <input type='text' name='email' class='wooly-h'/>
       </p>
       <p>
         <input type='submit' name='doAdd' value='Add message' />

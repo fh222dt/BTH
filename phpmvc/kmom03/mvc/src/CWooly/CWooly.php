@@ -45,16 +45,6 @@ class CWooly implements ISingleton {
       return self::$instance;
    }
 
-
-
-    /**
-    * Frontcontroller, check url and route to controllers.
-    */
-  /*public function FrontControllerRoute() {
-    $this->data['debug']  = "REQUEST_URI - {$_SERVER['REQUEST_URI']}\n";
-    $this->data['debug'] .= "SCRIPT_NAME - {$_SERVER['SCRIPT_NAME']}\n";
-  }*/
-
   /**
     * Frontcontroller, check url and route to controllers.
     */
