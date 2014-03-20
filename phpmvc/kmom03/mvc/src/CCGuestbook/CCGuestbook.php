@@ -28,31 +28,6 @@ public function Index() {
     ));
   }
 
-
-  /*public function Index() { 
-    $formAction = $this->request->CreateUrl('guestbook/handler');
-    $this->pageForm = "
-    <form action='{$formAction}' method='post'>
-    <p>
-    <label>Message: <br/>
-    <textarea name='newEntry'></textarea></label>
-    </p>
-    <p>
-    <input type='submit' name='doAdd' value='Add message' />
-    <input type='submit' name='doClear' value='Clear all messages' />
-    <input type='submit' name='doCreate' value='Create database table' />
-    </p>
-    </form>
-    ";
-    $this->data['title'] = $this->pageTitle;
-    $this->data['main'] = $this->pageHeader . $this->pageForm . $this->pageMessages;
-    
-    $entries = $this->ReadAllFromDatabase();
-    foreach($entries as $val) {
-      $this->data['main'] .= "<div style='background-color:#f6f6f6;border:1px solid #ccc;margin-bottom:1em;padding:1em;'><p>At: {$val['created']}</p><p>" . htmlent($val['entry']) . "</p></div>\n";
-    }
-  }*/
-
  /**
   * Implementing interface IHasSQL. Encapsulate all SQL used by this class.
   *
@@ -93,6 +68,7 @@ public static function SQL($key=null) {
    */
   private function SaveNewToDatabase($entry) {
     $this->db->ExecuteQuery(self::SQL('insert into guestbook'), array($entry));
+    $this->session->AddMessage('success', 'Successfully inserted new message.');
     if($this->db->rowCount() != 1) {
       echo 'Failed to insert new guestbook item into database.';
     }
@@ -103,6 +79,7 @@ public static function SQL($key=null) {
    */
   private function DeleteAllFromDatabase() {
     $this->db->ExecuteQuery(self::SQL('delete from guestbook'));
+    $this->session->AddMessage('info', 'Removed all messages from the database table.');
   }
 
   /**
@@ -123,7 +100,9 @@ public static function SQL($key=null) {
   private function CreateTableInDatabase() {
     try {
       $this->db->ExecuteQuery(self::SQL('create table guestbook'));
-    } catch(Exception $e) {
+      $this->session->AddMessage('notice', 'Successfully created the database tables (or left them untouched if they already existed).');
+    } 
+    catch(Exception $e) {
       die("$e<br/>Failed to open database: " . $this->config['database'][0]['dsn']);
     }
   }

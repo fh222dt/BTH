@@ -11,6 +11,7 @@ class CObject {
    public $data;
    public $db;
    public $views;
+   public $session;
 
    /**
     * Constructor
@@ -22,6 +23,7 @@ class CObject {
     $this->data     = &$wo->data;
     $this->db       = &$wo->db;
     $this->views    = &$wo->views;
+    $this->session  = &$wo->session;
   }
 
 }

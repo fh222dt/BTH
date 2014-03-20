@@ -83,3 +83,10 @@ $wo->config['database'][0]['dsn'] = 'sqlite:' . WOOLY_SITE_PATH . '/data/.ht.sql
 $wo->config['debug']['wooly'] = false;
 $wo->config['debug']['db-num-queries'] = true;
 $wo->config['debug']['db-queries'] = true;
+$wo->config['debug']['session'] = true;
+$wo->config['debug']['timer'] = true;
+
+/**
+* Set session key
+*/
+$wo->config['session_key']  = 'wooly';
