@@ -9,6 +9,24 @@ class CWooly implements ISingleton {
    private static $instance = null;
 
    /**
+    * Constructor
+    */
+   protected function __construct() {
+      // include the site specific config.php and create a ref to $wo to be used by config.php
+      $wo = &$this;
+      require(WOOLY_SITE_PATH.'/config.php');
+
+      // Start a named session
+      session_name($this->config['session_name']);
+      session_start();
+
+      // Create a database object.
+      if(isset($this->config['database'][0]['dsn'])) {
+          $this->db = new CMDatabase($this->config['database'][0]['dsn']);
+      }
+   }
+
+   /**
     * Singleton pattern. Get the instance of the latest created object or create a new one.
     * @return CWooly The instance of this class.
     */
@@ -19,18 +37,7 @@ class CWooly implements ISingleton {
       return self::$instance;
    }
 
-   /**
-    * Constructor
-    */
-   protected function __construct() {
-      // include the site specific config.php and create a ref to $wo to be used by config.php
-      $wo = &$this;
-      require(WOOLY_SITE_PATH.'/config.php');
 
-        // Start a named session
-        session_name($this->config['session_name']);
-        session_start();
-   }
 
     /**
     * Frontcontroller, check url and route to controllers.

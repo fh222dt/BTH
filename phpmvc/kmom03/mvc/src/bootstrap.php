@@ -26,3 +26,11 @@
        }
     }
     spl_autoload_register('autoload');
+
+   /**
+    * Set a default exception handler and enable logging in it.
+    */
+    function exception_handler($exception) {
+      echo "Wooly: Uncaught exception: <p>" . $exception->getMessage() . "</p><pre>" . $exception->getTraceAsString(), "</pre>";
+    }
+    set_exception_handler('exception_handler');

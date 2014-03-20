@@ -71,3 +71,15 @@ $wo->config['url_type'] = 1;
 * Set what to show as debug or developer information in the get_debug() theme helper.
 */
 $wo->config['debug']['display-wooly'] = true;
+
+/**
+* Set database(s).
+*/
+$wo->config['database'][0]['dsn'] = 'sqlite:' . WOOLY_SITE_PATH . '/data/.ht.sqlite';
+
+/**
+* Set what to show as debug or developer information in the get_debug() theme helper.
+*/
+$wo->config['debug']['wooly'] = false;
+$wo->config['debug']['db-num-queries'] = true;
+$wo->config['debug']['db-queries'] = true;
