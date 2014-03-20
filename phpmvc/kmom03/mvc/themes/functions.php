@@ -37,3 +37,10 @@
     function current_url() {
       return CWooly::Instance()->request->current_url;
     }
+
+    /**
+    * Render all views.
+    */
+    function render_views() {
+      return CWooly::Instance()->views->Render();
+    }

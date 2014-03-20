@@ -2,13 +2,13 @@
 /**
 * A guestbook controller as an example to show off some basic controller and model-stuff.
 *
-* @package LydiaCore
+* @package WoolyCore
 */
 class CCGuestbook extends CObject implements IController, IHasSQL {
 
 private $pageTitle = 'Wooly Guestbook Example';
-private $pageHeader = '<h1>Guestbook Example</h1><p>Showing off how to implement a guestbook in Wooly.</p>';
-private $pageMessages = '<h2>Current messages</h2>';
+//private $pageHeader = '<h1>Guestbook Example</h1><p>Showing off how to implement a guestbook in Wooly.</p>';
+//private $pageMessages = '<h2>Current messages</h2>';
 
 /**
  * Constructor
@@ -20,7 +20,16 @@ public function __construct() {
 /**
 * Implementing interface IController. All controllers must have an index action.
 */
-  public function Index() { 
+public function Index() {
+    $this->views->SetTitle($this->pageTitle);
+    $this->views->AddInclude(__DIR__ . '/index.tpl.php', array(
+      'entries'=>$this->ReadAllFromDatabase(),
+      'formAction'=>$this->request->CreateUrl('guestbook/handler')
+    ));
+  }
+
+
+  /*public function Index() { 
     $formAction = $this->request->CreateUrl('guestbook/handler');
     $this->pageForm = "
     <form action='{$formAction}' method='post'>
@@ -42,7 +51,7 @@ public function __construct() {
     foreach($entries as $val) {
       $this->data['main'] .= "<div style='background-color:#f6f6f6;border:1px solid #ccc;margin-bottom:1em;padding:1em;'><p>At: {$val['created']}</p><p>" . htmlent($val['entry']) . "</p></div>\n";
     }
-  }
+  }*/
 
  /**
   * Implementing interface IHasSQL. Encapsulate all SQL used by this class.

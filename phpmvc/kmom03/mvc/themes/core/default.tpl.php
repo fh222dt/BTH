@@ -10,11 +10,12 @@
         <?=$header?>
       </div>
       <div id="main" role="main">
-        <?=$main?>
-        <?=get_debug()?>
+        <?=@$main?>
+        <?=render_views()?>
       </div>
       <div id="footer">
         <?=$footer?>
+        <?=get_debug()?>
       </div>
     </body>
     </html>

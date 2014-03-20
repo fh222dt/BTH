@@ -24,6 +24,9 @@ class CWooly implements ISingleton {
       if(isset($this->config['database'][0]['dsn'])) {
           $this->db = new CMDatabase($this->config['database'][0]['dsn']);
       }
+
+      // Create a container for all views and theme data
+      $this->views = new CViewContainer();
    }
 
    /**
@@ -103,11 +106,7 @@ class CWooly implements ISingleton {
     * Theme Engine Render, renders the views using the selected theme.
     */
   public function ThemeEngineRender() {
-    /*echo "<h1>I'm CLydia::ThemeEngineRender</h1><p>You are most welcome. Nothing to render at the moment</p>";
-    echo "<h2>The content of the config array:</h2><pre>", print_r($this->config, true) . "</pre>";
-    echo "<h2>The content of the data array:</h2><pre>", print_r($this->data, true) . "</pre>";
-    echo "<h2>The content of the request array:</h2><pre>", print_r($this->request, true) . "</pre>";*/
-
+    
     // Get the paths and settings for the theme
     $themeName    = $this->config['theme']['name'];
     $themePath    = WOOLY_INSTALL_PATH . "/themes/{$themeName}";
@@ -126,6 +125,7 @@ class CWooly implements ISingleton {
 
     // Extract $wo->data to own variables and handover to the template file
     extract($this->data);     
+    extract($this->views->GetData());     
     include("{$themePath}/default.tpl.php");    
   }
 }
