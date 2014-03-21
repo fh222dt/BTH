@@ -12,18 +12,22 @@ class CObject {
    public $db;
    public $views;
    public $session;
+   public $user;
 
    /**
     * Constructor
     */
-   protected function __construct() {
-    $wo = CWooly::Instance();
+   protected function __construct($wo=null) {
+    if(!$wo) {
+      $wo = CWooly::Instance();
+    } 
     $this->config   = &$wo->config;
     $this->request  = &$wo->request;
     $this->data     = &$wo->data;
     $this->db       = &$wo->db;
     $this->views    = &$wo->views;
     $this->session  = &$wo->session;
+    $this->user     = &$wo->user;
   }
 
   /**

@@ -41,9 +41,10 @@ $wo->config['language'] = 'en';
 */
 $wo->config['controllers'] = array(
   'index'     => array('enabled' => true,'class' => 'CCIndex'),
-  'developer'     => array('enabled' => true,'class' => 'CCDeveloper'),
-  'guestbook'     => array('enabled' => true,'class' => 'CCGuestbook'),
-  'user'     => array('enabled' => true,'class' => 'CCUser'),
+  'developer' => array('enabled' => true,'class' => 'CCDeveloper'),
+  'guestbook' => array('enabled' => true,'class' => 'CCGuestbook'),
+  'user'      => array('enabled' => true,'class' => 'CCUser'),
+  'acp'       => array('enabled' => true,'class' => 'CCAdminControlPanel'),
 );
 
 /**
