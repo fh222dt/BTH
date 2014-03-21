@@ -2,6 +2,8 @@
 <ul>
   <li><a href='<?=create_url(null, 'init')?>'>
     Init database, create tables and create default admin user</a></li>
+  <li><a href='<?=create_url(null, 'login', 'doe/doe')?>'>
+    Login as doe:doe (should work)</a></li>  
   <li><a href='<?=create_url(null, 'login', 'root/root')?>'>
     Login as root:root (should work)</a></li>
   <li><a href='<?=create_url(null, 'login', 'root@dbwebb.se/root')?>'>
