@@ -15,7 +15,8 @@ if(!defined('__DIR__')) {
 $data['navkmom'] = array(
   'kmom01'   => array('text'=>'kmom01',  'url'=>'../kmom01'),
   'kmom02'   => array('text'=>'kmom02',  'url'=>'../kmom02'),
-  'kmom03'   => array('text'=>'kmom03',  'url'=>false),
+  'kmom03'   => array('text'=>'kmom03',  'url'=>'../kmom03'),
+  'kmom04'   => array('text'=>'kmom04',  'url'=>false),
 );
 
 // The contents of the navbar
