@@ -67,31 +67,25 @@ class CFormElement implements ArrayAccess{
   }
 
 
-  /**
-  * Use the element name as label if label is not set.
-  */
-    public function UseNameAsDefaultLabel() {
-      if(!isset($this['label'])) {
-        $this['label'] = ucfirst(strtolower(str_replace(array('-','_'), ' ', $this['name']))).':';
-      }
+/**
+* Use the element name as label if label is not set.
+*/
+  public function UseNameAsDefaultLabel() {
+    if(!isset($this['label'])) {
+      $this['label'] = ucfirst(strtolower(str_replace(array('-','_'), ' ', $this['name']))).':';
     }
+  }
 
 
-  /**
-  * Use the element name as value if value is not set.
-  */
-    public function UseNameAsDefaultValue() {
-      if(!isset($this['value'])) {
-        $this['value'] = ucfirst(strtolower(str_replace(array('-','_'), ' ', $this['name'])));
-      }
+/**
+* Use the element name as value if value is not set.
+*/
+  public function UseNameAsDefaultValue() {
+    if(!isset($this['value'])) {
+      $this['value'] = ucfirst(strtolower(str_replace(array('-','_'), ' ', $this['name'])));
     }
+  }
 
-    /**
-   * Validate the form element value according a ruleset.
-   *
-   * @param $rules array of validation rules.
-   * returns boolean true if all rules pass, else false.
-   */
   public function Validate($rules) {
     $tests = array(
       'fail' => array(
@@ -138,6 +132,8 @@ class CFormElementText extends CFormElement {
       $this->UseNameAsDefaultLabel();
     }
 }
+
+
 
 
 class CFormElementPassword extends CFormElement {
@@ -209,22 +205,33 @@ class CForm implements ArrayAccess {
   /**
   * Return HTML for the form
   */
-    public function GetHTML() {
-      $id = isset($this->form['id']) ? " id='{$this->form['id']}'" : null;
-      $class = isset($this->form['class']) ? " class='{$this->form['class']}'" : null;
-      $name = isset($this->form['name']) ? " name='{$this->form['name']}'" : null;
-      $action = isset($this->form['action']) ? " action='{$this->form['action']}'" : null;
-      $method = " method='post'";
-      $elements = $this->GetHTMLForElements();
-      $html = <<< EOD
+  /**
+* Return HTML for the form or the formdefinition.
+*
+* @param $type string what part of the form to return.
+* @returns string with HTML for the form.
+*/
+  public function GetHTML($type=null) {
+    $id = isset($this->form['id']) ? " id='{$this->form['id']}'" : null;
+    $class = isset($this->form['class']) ? " class='{$this->form['class']}'" : null;
+    $name = isset($this->form['name']) ? " name='{$this->form['name']}'" : null;
+    $action = isset($this->form['action']) ? " action='{$this->form['action']}'" : null;
+    $method = " method='post'";
+
+    if($type == 'form') {
+      return "<form{$id}{$class}{$name}{$action}{$method}>";
+    }
+    
+    $elements = $this->GetHTMLForElements();
+    $html = <<< EOD
 \n<form{$id}{$class}{$name}{$action}{$method}>
 <fieldset>
 {$elements}
 </fieldset>
 </form>
 EOD;
-      return $html;
-    }
+    return $html;
+  }
  
 
   /**
