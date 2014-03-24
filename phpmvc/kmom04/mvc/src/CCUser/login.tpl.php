@@ -1,5 +1,7 @@
 <h1>Login</h1>
-<p>Here should a login form be, but for now you can login using these links.</p>
+<p>Login using your acronym or email.</p>
+<?=$login_form?>
+
 <ul>
   <li><a href='<?=create_url(null, 'login', 'doe/doe')?>'>
     Login as doe:doe (should work)</a></li>  
