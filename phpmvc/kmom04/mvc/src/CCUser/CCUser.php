@@ -31,15 +31,17 @@ class CCUser extends CObject implements IController {
   }
 
   /**
-   * Authenticate and login a user.
-   */
+* Authenticate and login a user.
+*/
   public function Login() {
     $form = new CFormUserLogin($this);
-    $form->CheckIfSubmitted();
-    $this->views->SetTitle('Login');
-    $this->views->AddInclude(__DIR__ . '/login.tpl.php', 
-      array('login_form'=>$form->GetHTML())); 
-              }
+    if($form->Check() === false) {
+      $this->AddMessage('notice', 'You must fill in acronym and password.');
+      $this->RedirectToController('login');
+    }
+    $this->views->SetTitle('Login')
+                ->AddInclude(__DIR__ . '/login.tpl.php', array('login_form'=>$form->GetHTML()));
+  }
 
   /**
    * Perform a login of the user as callback on a submitted form.
@@ -59,7 +61,7 @@ class CCUser extends CObject implements IController {
    */
   public function Profile() {   
     $form = new CFormUserProfile($this, $this->user);
-    $form->CheckIfSubmitted();
+    $form->Check();
 
     $this->views->SetTitle('User Profile')
                 ->AddInclude(__DIR__ . '/profile.tpl.php', array(

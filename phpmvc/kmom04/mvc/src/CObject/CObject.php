@@ -33,19 +33,19 @@ class CObject {
   /**
   * Redirect to another url and store the session
   */
-  protected function RedirectTo($url) {
-      $wo = CWooly::Instance();
-      if(isset($wo->config['debug']['db-num-queries']) && $wo->config['debug']['db-num-queries'] && isset($wo->db)) {
-        $this->session->SetFlash('database_numQueries', $this->db->GetNumQueries());
-      }
-      if(isset($wo->config['debug']['db-queries']) && $wo->config['debug']['db-queries'] && isset($wo->db)) {
-        $this->session->SetFlash('database_queries', $this->db->GetQueries());
-      }
-      /*if(isset($wo->config['debug']['timer']) && $wo->config['debug']['timer']) {
+  protected function RedirectTo($urlOrController=null, $method=null) {
+    $wo = CWooly::Instance();
+    if(isset($this->config['debug']['db-num-queries']) && $this->config['debug']['db-num-queries'] && isset($this->db)) {
+      $this->session->SetFlash('database_numQueries', $this->db->GetNumQueries());
+    }
+    if(isset($this->config['debug']['db-queries']) && $this->config['debug']['db-queries'] && isset($this->db)) {
+      $this->session->SetFlash('database_queries', $this->db->GetQueries());
+    }
+    if(isset($this->config['debug']['timer']) && $this->config['debug']['timer']) {
         $this->session->SetFlash('timer', $wo->timer);
-      }*/
-      $this->session->StoreInSession();
-      header('Location: ' . $this->request->CreateUrl($url));
+    }
+    $this->session->StoreInSession();
+    header('Location: ' . $this->request->CreateUrl($urlOrController, $method));
   }
 
  /**
@@ -55,7 +55,7 @@ class CObject {
   * @param string method name the method, default is index method.
   */
   protected function RedirectToController($method=null) {
-      $this->RedirectTo($this->request->controller, $method);
+    $this->RedirectTo($this->request->controller, $method);
   }
 
 
