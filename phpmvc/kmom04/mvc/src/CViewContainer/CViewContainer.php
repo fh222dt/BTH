@@ -31,7 +31,7 @@ class CViewContainer {
     * @param $value string to be set as title.
     */
    public function SetTitle($value) {
-     $this->SetVariable('title', $value);
+     return $this->SetVariable('title', $value);
   }
 
 
@@ -41,7 +41,8 @@ class CViewContainer {
     * @param $value string to be set as title.
     */
    public function SetVariable($key, $value) {
-     $this->data[$key] = $value;
+      $this->data[$key] = $value;
+      return $this;
   }
 
 
@@ -51,9 +52,10 @@ class CViewContainer {
     * @param $file string path to the file to be included.
     * @param vars array containing the variables that should be avilable for the included file.
     */
-   public function AddInclude($file, $variables=array()) {
-     $this->views[] = array('type' => 'include', 'file' => $file, 'variables' => $variables);
-  }
+    public function AddInclude($file, $variables=array()) {
+      $this->views[] = array('type' => 'include', 'file' => $file, 'variables' => $variables);
+      return $this;
+    }
 
 
    /**

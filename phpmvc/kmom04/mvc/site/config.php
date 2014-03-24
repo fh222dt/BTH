@@ -92,3 +92,8 @@ $wo->config['debug']['timer'] = true;
 * Set session key
 */
 $wo->config['session_key']  = 'wooly';
+
+/**
+* How to hash password of new users, choose from: plain, md5salt, md5, sha1salt, sha1.
+*/
+$wo->config['hashing_algorithm'] = 'sha1salt';
