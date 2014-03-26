@@ -95,3 +95,10 @@ function login_menu() {
   }
   return "<nav id='login-menu'>$items</nav>";
 }
+
+/**
+* Escape data to make it safe to write in the browser.
+*/
+function esc($str) {
+  return htmlEnt($str);
+}

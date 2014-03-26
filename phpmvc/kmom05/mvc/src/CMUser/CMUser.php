@@ -16,28 +16,31 @@ class CMUser extends CObject implements IHasSQL, ArrayAccess {
   /**
   * Constructor
   */
-  public function __construct($ly=null) {
-    parent::__construct($ly);
+  public function __construct($wo=null) {
+    parent::__construct($wo);
     $profile = $this->session->GetAuthenticatedUser();
     $this->profile = is_null($profile) ? array() : $profile;
     $this['isAuthenticated'] = is_null($profile) ? false : true;
+    if(!$this['isAuthenticated']) {
+      $this['id'] = 1;
+      $this['acronym'] = 'anonomous';
+    }
   }
 
   /**
-   * Implementing ArrayAccess for $this->profile
-   */
+* Implementing ArrayAccess for $this->profile
+*/
   public function offsetSet($offset, $value) { if (is_null($offset)) { $this->profile[] = $value; } else { $this->profile[$offset] = $value; }}
   public function offsetExists($offset) { return isset($this->profile[$offset]); }
   public function offsetUnset($offset) { unset($this->profile[$offset]); }
   public function offsetGet($offset) { return isset($this->profile[$offset]) ? $this->profile[$offset] : null; }
 
 
-
   /**
-   * Implementing interface IHasSQL. Encapsulate all SQL used by this class.
-   *
-   * @param string $key the string that is the key of the wanted SQL-entry in the array.
-   */
+* Implementing interface IHasSQL. Encapsulate all SQL used by this class.
+*
+* @param string $key the string that is the key of the wanted SQL-entry in the array.
+*/
   public static function SQL($key=null) {
     $queries = array(
       'drop table user' => "DROP TABLE IF EXISTS User;",
@@ -61,7 +64,7 @@ class CMUser extends CObject implements IHasSQL, ArrayAccess {
   }
 
 
-/**
+  /**
 * Init the database and create appropriate tables.
 */
   public function Init() {
@@ -72,6 +75,7 @@ class CMUser extends CObject implements IHasSQL, ArrayAccess {
       $this->db->ExecuteQuery(self::SQL('create table user'));
       $this->db->ExecuteQuery(self::SQL('create table group'));
       $this->db->ExecuteQuery(self::SQL('create table user2group'));
+      $this->db->ExecuteQuery(self::SQL('insert into user'), array('anonomous', 'Anonomous, not authenticated', null, 'plain', null, null));
       $password = $this->CreatePassword('root');
       $this->db->ExecuteQuery(self::SQL('insert into user'), array('root', 'The Administrator', 'root@dbwebb.se', $password['algorithm'], $password['salt'], $password['password']));
       $idRootUser = $this->db->LastInsertId();
@@ -92,7 +96,7 @@ class CMUser extends CObject implements IHasSQL, ArrayAccess {
   }
   
 
-/**
+  /**
 * Login by autenticate the user and password. Store user information in session if success.
 *
 * Set both session and internal properties.
@@ -140,17 +144,37 @@ class CMUser extends CObject implements IHasSQL, ArrayAccess {
   }
   
 
-   /**
-   * Create password.
-   *
-   * @param $plain string the password plain text to use as base.
-   * @param $algorithm string stating what algorithm to use, plain, md5, md5salt, sha1, sha1salt.
-   * defaults to the settings of site/config.php.
-   * @returns array with 'salt' and 'password'.
-   */
+  /**
+* Create new user.
+*
+* @param $acronym string the acronym.
+* @param $password string the password plain text to use as base.
+* @param $name string the user full name.
+* @param $email string the user email.
+* @returns boolean true if user was created or else false and sets failure message in session.
+*/
+  public function Create($acronym, $password, $name, $email) {
+    $pwd = $this->CreatePassword($password);
+    $this->db->ExecuteQuery(self::SQL('insert into user'), array($acronym, $name, $email, $pwd['algorithm'], $pwd['salt'], $pwd['password']));
+    if($this->db->RowCount() == 0) {
+      $this->AddMessage('error', "Failed to create user.");
+      return false;
+    }
+    return true;
+  }
+  
+
+  /**
+* Create password.
+*
+* @param $plain string the password plain text to use as base.
+* @param $algorithm string stating what algorithm to use, plain, md5, md5salt, sha1, sha1salt.
+* defaults to the settings of site/config.php.
+* @returns array with 'salt' and 'password'.
+*/
   public function CreatePassword($plain, $algorithm=null) {
     $password = array(
-      'algorithm'=>($algorithm ? $algorithm : CWooly::Instance()->config['hashing_algorithm']),
+      'algorithm'=>($algorithm ? $algoritm : CWooly::Instance()->config['hashing_algorithm']),
       'salt'=>null
     );
     switch($password['algorithm']) {
@@ -163,17 +187,17 @@ class CMUser extends CObject implements IHasSQL, ArrayAccess {
     }
     return $password;
   }
-
+  
 
   /**
-   * Check if password matches.
-   *
-   * @param $plain string the password plain text to use as base.
-   * @param $algorithm string the algorithm mused to hash the user salt/password.
-   * @param $salt string the user salted string to use to hash the password.
-   * @param $password string the hashed user password that should match.
-   * @returns boolean true if match, else false.
-   */
+* Check if password matches.
+*
+* @param $plain string the password plain text to use as base.
+* @param $algorithm string the algorithm mused to hash the user salt/password.
+* @param $salt string the user salted string to use to hash the password.
+* @param $password string the hashed user password that should match.
+* @returns boolean true if match, else false.
+*/
   public function CheckPassword($plain, $algorithm, $salt, $password) {
     switch($algorithm) {
       case 'sha1salt': return $password === sha1($salt.$plain); break;
@@ -184,13 +208,13 @@ class CMUser extends CObject implements IHasSQL, ArrayAccess {
       default: throw new Exception('Unknown hashing algorithm');
     }
   }
-
+  
 
   /**
-  * Save user profile to database and update user profile in session.
-  *
-  * @returns boolean true if success else false.
-  */
+* Save user profile to database and update user profile in session.
+*
+* @returns boolean true if success else false.
+*/
   public function Save() {
     $this->db->ExecuteQuery(self::SQL('update profile'), array($this['name'], $this['email'], $this['id']));
     $this->session->SetAuthenticatedUser($this->profile);
@@ -199,34 +223,16 @@ class CMUser extends CObject implements IHasSQL, ArrayAccess {
   
   
   /**
-  * Change user password.
-  *
-  * @param $plain string plaintext of the new password
-  * @returns boolean true if success else false.
-  */
+* Change user password.
+*
+* @param $plain string plaintext of the new password
+* @returns boolean true if success else false.
+*/
   public function ChangePassword($plain) {
     $password = $this->CreatePassword($plain);
     $this->db->ExecuteQuery(self::SQL('update password'), array($password['algoritm'], $password['salt'], $password['password'], $this['id']));
     return $this->db->RowCount() === 1;
   }
-
-  /**
-   * Create new user.
-   *
-   * @param $acronym string the acronym.
-   * @param $password string the password plain text to use as base.
-   * @param $name string the user full name.
-   * @param $email string the user email.
-   * @returns boolean true if user was created or else false and sets failure message in session.
-   */
-  public function Create($acronym, $password, $name, $email) {
-    $pwd = $this->CreatePassword($password);
-    $this->db->ExecuteQuery(self::SQL('insert into user'), array($acronym, $name, $email, $pwd['algorithm'], $pwd['salt'], $pwd['password']));
-    if($this->db->RowCount() == 0) {
-      $this->AddMessage('error', "Failed to create user.");
-      return false;
-    }
-    return true;
-  }
- 
+  
+  
 }
