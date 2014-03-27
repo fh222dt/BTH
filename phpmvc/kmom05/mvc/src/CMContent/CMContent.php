@@ -151,6 +151,7 @@ class CMContent extends CObject implements IHasSQL, ArrayAccess {
 */
   public static function Filter($data, $filter) {
     switch($filter) {
+      case 'htmlpurify': $data = nl2br(CHTMLPurifier::Purify($data)); break;
       case 'bbcode': $data = nl2br(bbcode2html(htmlEnt($data))); break;
       case 'plain':
       default: $data = nl2br(makeClickable(htmlEnt($data))); break;
@@ -166,5 +167,5 @@ class CMContent extends CObject implements IHasSQL, ArrayAccess {
   public function GetFilteredData() {
     return $this->Filter($this['data'], $this['filter']);
   }
-  
+
 }
