@@ -52,8 +52,8 @@ function create_url($urlOrController=null, $method=null, $arguments=null) {
 /**
 * Render all views.
 */
-function render_views() {
-  return CWooly::Instance()->views->Render();
+function render_views($region='default') {
+  return CWooly::Instance()->views->Render($region);
 }
 
 /**
@@ -120,5 +120,14 @@ function filter_data($data, $filter) {
 function theme_url($url) {
   $wo = CWooly::Instance();
   return "{$wo->request->base_url}themes/{$wo->config['theme']['name']}/{$url}";
+}
+
+/**
+* Check if region has views. Accepts variable amount of arguments as regions.
+*
+* @param $region string the region to draw the content in.
+*/
+function region_has_content($region='default' /*...*/) {
+  return CWooly::Instance()->views->RegionHasView(func_get_args());
 }
 

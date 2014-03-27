@@ -55,9 +55,6 @@ body {
   background-color: #fff;
   font: 1em Verdana, Arial, Helvetica, sans-serif;
 }
-body:hover {
-  background: #fff url(grid_12_60_20.png) repeat-y center top;
-}
 #outer-wrap-header {
   height: 88px;
   margin-top: 11px;
@@ -142,7 +139,7 @@ body:hover {
   float: left;
   width: 940px;
   margin: 0 10px;
-  background-color: rgba(230,230,230,0.5);
+  background-color: #fff;
   height: 100%;
 }
 #inner-wrap-featured {
@@ -167,7 +164,7 @@ body:hover {
   float: left;
   width: 300px;
   margin: 0 10px;
-  background-color: rgba(230,230,230,0.5);
+  background-color: #fff;
   height: 100%;
 }
 #inner-wrap-main {
@@ -189,14 +186,14 @@ body:hover {
   float: left;
   width: 620px;
   margin: 0 10px;
-  background-color: rgba(230,230,230,0.5);
+  background-color: #fff;
 }
 #sidebar {
   display: inline;
   float: left;
   width: 300px;
   margin: 0 10px;
-  background-color: rgba(230,230,230,0.5);
+  background-color: #fff;
 }
 #inner-wrap-triptych {
   width: 960px;
@@ -223,11 +220,11 @@ body:hover {
   float: left;
   width: 300px;
   margin: 0 10px;
-  background-color: rgba(230,230,230,0.5);
+  background-color: #fff;
   height: 100%;
 }
 #outer-wrap-footer-column {
-  background-color: rgba(230,230,230,0.5);
+  background-color: #fff;
   border-top: 1px solid #bbb;
 }
 #inner-wrap-footer-column {
@@ -259,10 +256,10 @@ body:hover {
   font-size: 0.9em;
   margin-top: 1em;
   height: 100%;
-  background-color: rgba(255,255,255,0.5);
+  background-color: #ffffff;
 }
 #outer-wrap-footer {
-  background-color: rgba(230,230,230,0.5);
+  background-color: #fff;
 }
 #inner-wrap-footer {
   width: 960px;
