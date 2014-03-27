@@ -27,7 +27,7 @@ function get_debug() {
 /**
 * Create a url by prepending the base_url.
 */
-function base_url($url) {
+function base_url($url=null) {
   return CWooly::Instance()->request->base_url . trim($url, '/');
 }
 
@@ -113,3 +113,12 @@ function esc($str) {
 function filter_data($data, $filter) {
   return CMContent::Filter($data, $filter);
 }
+
+/**
+* Prepend the theme_url, which is the url to the current theme directory.
+*/
+function theme_url($url) {
+  $wo = CWooly::Instance();
+  return "{$wo->request->base_url}themes/{$wo->config['theme']['name']}/{$url}";
+}
+
