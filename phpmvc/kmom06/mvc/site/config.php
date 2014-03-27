@@ -66,6 +66,17 @@ $wo->config['theme'] = array(
     'footer-column-one','footer-column-two','footer-column-three','footer-column-four',
     'footer',
   ),
+
+  // Add static entries for use in the template file.
+      'data' => array(
+        'header' => 'Wooly',
+        'slogan' => 'A PHP-based MVC-inspired CMF',
+        'favicon' => 'logo.png',
+        'logo' => 'logo.png',
+        'logo_width'  => 80,
+        'logo_height' => 80,
+        'footer' => '<p>&copy; Wooly by Frida Holmström 2014</p>',
+      ),
 );
 
 /**
@@ -115,3 +126,4 @@ $wo->config['hashing_algorithm'] = 'sha1salt';
 * Allow or disallow creation of new user accounts.
 */
 $wo->config['create_new_users'] = true;
+

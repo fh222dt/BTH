@@ -101,23 +101,23 @@ class CWooly implements ISingleton {
   }
 
   /**
-   * ThemeEngineRender, renders the reply of the request to HTML or whatever.
-   */
+* ThemeEngineRender, renders the reply of the request to HTML or whatever.
+*/
   public function ThemeEngineRender() {
     // Save to session before output anything
     $this->session->StoreInSession();
- 
+  
     // Is theme enabled?
     if(!isset($this->config['theme'])) { return; }
-   
+    
     // Get the paths and settings for the theme
-    $themeName  = $this->config['theme']['name'];
-    $themePath  = WOOLY_INSTALL_PATH . "/themes/{$themeName}";
-    $themeUrl   = $this->request->base_url . "themes/{$themeName}";
-   
+    $themeName = $this->config['theme']['name'];
+    $themePath = WOOLY_INSTALL_PATH . "/themes/{$themeName}";
+    $themeUrl = $this->request->base_url . "themes/{$themeName}";
+    
     // Add stylesheet path to the $wo->data array
     $this->data['stylesheet'] = "{$themeUrl}/".$this->config['theme']['stylesheet'];
-   
+    
     // Include the global functions.php and the functions.php that are part of the theme
     $wo = &$this;
     include(WOOLY_INSTALL_PATH . '/themes/functions.php');
@@ -127,8 +127,11 @@ class CWooly implements ISingleton {
     }
 
     // Extract $wo->data to own variables and handover to the template file
-    extract($this->data);     
+    extract($this->data);
     extract($this->views->GetData());
+    if(isset($this->config['theme']['data'])) {
+      extract($this->config['theme']['data']);
+    }
     $templateFile = (isset($this->config['theme']['template_file'])) ? $this->config['theme']['template_file'] : 'default.tpl.php';
     include("{$themePath}/{$templateFile}");
   }
