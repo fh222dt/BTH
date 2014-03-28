@@ -18,7 +18,8 @@ $data['navkmom'] = array(
   'kmom03'   => array('text'=>'kmom03',  'url'=>'../kmom03'),
   'kmom04'   => array('text'=>'kmom04',  'url'=>'../kmom04'),
   'kmom05'   => array('text'=>'kmom05',  'url'=>'../kmom05'),
-  'kmom06'   => array('text'=>'kmom06',  'url'=>false),
+  'kmom06'   => array('text'=>'kmom06',  'url'=>'../kmom06'),
+  'kmom07'   => array('text'=>'kmom07',  'url'=>false),
 );
 
 // The contents of the navbar
