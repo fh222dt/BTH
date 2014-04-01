@@ -61,13 +61,13 @@ class CViewContainer {
   }
 
   /**
-   * Add a view as file to be included and optional variables.
-   *
-   * @param $file string path to the file to be included.
-   * @param $vars array containing the variables that should be avilable for the included file.
-   * @param $region string the theme region, uses string 'default' as default region.
-   * @returns $this.
-   */
+  * Add a view as file to be included and optional variables.
+  *
+  * @param $file string path to the file to be included.
+  * @param $vars array containing the variables that should be avilable for the included file.
+  * @param $region string the theme region, uses string 'default' as default region.
+  * @returns $this.
+  */
   public function AddInclude($file, $variables=array(), $region='default') {
     $this->views[$region][] = array('type' => 'include', 'file' => $file, 'variables' => $variables);
     return $this;
