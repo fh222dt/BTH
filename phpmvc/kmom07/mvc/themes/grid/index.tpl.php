@@ -4,7 +4,7 @@
     <meta charset='utf-8'/>
     <title><?=$title?></title>
   <link rel='shortcut icon' href='<?=theme_url($favicon)?>'/>
-  <link rel='stylesheet' href='<?=$stylesheet?>'/>
+  <link rel='stylesheet' href='<?=theme_url($stylesheet)?>'/>
   <?php if(isset($inline_style)): ?><style><?=$inline_style?></style><?php endif; ?>
   </head>
 <body>
@@ -21,6 +21,10 @@
       </div>
     </div>
   </div>
+
+  <?php if(region_has_content('navbar')): ?>
+    <div id='navbar'><?=render_views('navbar')?></div>
+  <?php endif; ?>
 
   <?php if(region_has_content('flash')): ?>
   <div id='outer-wrap-flash'>

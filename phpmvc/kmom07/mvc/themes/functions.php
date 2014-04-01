@@ -35,7 +35,7 @@ function base_url($url=null) {
 * Return the current url.
 */
 function current_url() {
-  return CWooly::Instance()->request->current_url;
+  return CWooly::Instance()->CreateUrl($urlOrController, $method, $arguments);
 }
 
 /**
@@ -118,8 +118,17 @@ function filter_data($data, $filter) {
 * Prepend the theme_url, which is the url to the current theme directory.
 */
 function theme_url($url) {
-  $wo = CWooly::Instance();
-  return "{$wo->request->base_url}themes/{$wo->config['theme']['name']}/{$url}";
+  return create_url(CWooly::Instance()->themeUrl . "/{$url}");
+}
+
+/**
+* Prepend the theme_parent_url, which is the url to the parent theme directory.
+*
+* @param $url string the url-part to prepend.
+* @returns string the absolute url.
+*/
+function theme_parent_url($url) {
+  return create_url(CWooly::Instance()->themeParentUrl . "/{$url}");
 }
 
 /**

@@ -17,9 +17,14 @@ class CCIndex extends CObject implements IController {
   * Implementing interface IController. All controllers must have an index action.
   */
   public function Index() {
-    $this->views->SetTitle('Index Controller');
-    $this->views->AddInclude(__DIR__ . '/index.tpl.php', array('menu'=>$this->Menu()));
+    $modules = new CMModules();
+    $controllers = $modules->AvailableControllers();
+    $this->views->SetTitle('Index')
+                ->AddInclude(__DIR__ . '/index.tpl.php', array(), 'primary')
+                ->AddInclude(__DIR__ . '/sidebar.tpl.php', array('controllers'=>$controllers), 'sidebar');
   }
+
+
 
   /**
    * A menu that shows all available controllers/methods
