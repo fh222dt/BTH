@@ -1,0 +1,46 @@
+body {
+    margin: 8px auto;
+    max-width: 940px;
+}
+
+#flash {
+    background-color: rgba(238, 238, 238, 0.95);
+    border: 1px solid #999999;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px #555555;
+    margin: 2em auto;
+    min-height: 10em;
+    padding: 1em;
+}
+
+#footer {
+    border-top: 1px solid #999999;
+    color: #999999;
+    font-size: smaller;
+    margin-top: 22px;
+    padding-top: 0.5em;
+}
+
+#b1 {
+    position: absolute;
+}
+.baddie {
+    background-image: url("img/sprite_mickey_mos.png");
+    height: 64px;
+    transition-duration: 0.2s;
+    transition-property: left, top;
+    transition-timing-function: ease;
+    width: 64px;
+}
+.baddie.up {
+    background-position: 64px 0;
+}
+.baddie.down {
+    background-position: 128px 0;
+}
+.baddie.left {
+    background-position: 192px 0;
+}
+.baddie.right {
+    background-position: 0 0;
+}

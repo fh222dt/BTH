@@ -1,0 +1,128 @@
+body {
+    margin: 8px auto;
+    max-width: 940px;
+    font-family: Arial, Verdana, sans-serif;
+}
+
+#flash {
+    background-color: rgba(238, 238, 238, 0.95);
+    border: 1px solid #999999;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px #555555;
+    margin: 2em auto;
+    min-height: 10em;
+    padding: 1em;
+}
+
+#footer {
+    border-top: 1px solid #999999;
+    color: #999999;
+    font-size: smaller;
+    margin-top: 22px;
+    padding-top: 0.5em;
+}
+
+table {
+    margin-bottom: 1.375em;
+    width: 100%;
+}
+caption {
+    font-style: italic;
+    text-align: left;
+}
+thead {
+    border-bottom: 2px solid #222222;
+}
+th {
+    font-weight: bold;
+    text-align: left;
+    vertical-align: bottom;
+}
+th, td {
+    padding: 5px 10px 5px 5px;
+}
+tbody tr {
+    border-bottom: 1px solid #EEEEEE;
+}
+tbody tr:hover {
+    color: #000000;
+}
+tfoot {
+    font-style: italic;
+}
+
+#table {
+    background-color: #46A546;
+    border: 2px solid #285D28;
+    border-radius: 5px;
+    box-shadow: 5px 5px 5px 5px #555555;
+    height: 500px;
+    /*left: 700px;
+    padding-left: 2px;
+    position: absolute;
+    top: 20px;*/
+    width: 212px;
+    float: right;
+    margin-top: -50px;
+}
+#status {
+    height: 50px;
+    width: 600px;
+}
+#log {
+    height: 200px;
+    overflow: auto;
+    width: 600px;
+}
+.number {
+    height: 30px;
+    transition: all 0.3s ease-in-out 0s;
+    width: 60px;
+}
+.number.green {
+    background-color: #46A546;
+    border: 2px solid #378137;
+    border-radius: 40px;
+    color: #FFFFFF;
+    float: left;
+    font-size: 1.2em;
+    margin: 2px;
+    text-align: center;
+    top: 10px;
+    width: 196px;
+}
+.number.red {
+    background-color: #9D261D;
+    border: 2px solid #721C15;
+    border-radius: 40px;
+    color: #FFFFFF;
+    float: left;
+    font-size: 1.2em;
+    margin: 2px;
+    text-align: center;
+    top: 10px;
+}
+.number.black {
+    background-color: #000000;
+    border: 2px solid #000000;
+    border-radius: 40px;
+    color: #FFFFFF;
+    float: left;
+    font-size: 1.2em;
+    margin: 2px;
+    text-align: center;
+    top: 10px;
+}
+.number.selected {
+    border-color: #FEFEFE;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+input, select {
+    font-size: inherit;
+    width: 6em;
+}
+input[type="number"] {
+    text-align: right;
+    width: 4em;
+}

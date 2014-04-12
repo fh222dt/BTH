@@ -1,0 +1,23 @@
+body {
+    margin: 8px auto;
+    max-width: 940px;
+    font-family: Arial, Verdana, sans-serif;
+}
+
+#flash {
+    background-color: rgba(238, 238, 238, 0.95);
+    border: 1px solid #999999;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px #555555;
+    margin: 2em auto;
+    min-height: 10em;
+    padding: 1em;
+}
+
+#footer {
+    border-top: 1px solid #999999;
+    color: #999999;
+    font-size: smaller;
+    margin-top: 22px;
+    padding-top: 0.5em;
+}

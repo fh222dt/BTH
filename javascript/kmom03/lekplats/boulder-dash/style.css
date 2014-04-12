@@ -1,0 +1,148 @@
+body {
+    margin: 8px auto;
+    max-width: 940px;
+    font-family: Arial, Verdana, sans-serif;
+}
+
+#flash {
+    background-color: rgba(238, 238, 238, 0.95);
+    border: 1px solid #999999;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px #555555;
+    margin: 2em auto;
+    min-height: 10em;
+    padding: 1em;
+}
+
+#footer {
+    border-top: 1px solid #999999;
+    color: #999999;
+    font-size: smaller;
+    margin-top: 22px;
+    padding-top: 0.5em;
+}
+
+table {
+    margin-bottom: 1.375em;
+    width: 100%;
+}
+caption {
+    font-style: italic;
+    text-align: left;
+}
+thead {
+    border-bottom: 2px solid #222222;
+}
+th {
+    font-weight: bold;
+    text-align: left;
+    vertical-align: bottom;
+}
+th, td {
+    padding: 5px 10px 5px 5px;
+}
+tbody tr {
+    border-bottom: 1px solid #EEEEEE;
+}
+tbody tr:hover {
+    color: #000000;
+}
+tfoot {
+    font-style: italic;
+}
+
+#flash {
+    height: 768px;
+    width: 768px;
+}
+#baddie1 {
+    position: absolute;
+}
+.baddie {
+    background-image: url("img/tiles1.png");
+    background-repeat: no-repeat;
+    height: 32px;
+    transition-duration: 0.2s;
+    transition-property: left, top;
+    transition-timing-function: ease;
+    width: 32px;
+    z-index: 10;
+}
+.baddie.up {
+    background-position: -102px 0;
+}
+.baddie.down {
+    background-position: -68px 0;
+}
+.baddie.left {
+    background-position: -34px 0;
+}
+.baddie.right {
+    background-position: 0 0;
+}
+
+.tile, .t, .block, .b {
+    background-repeat: no-repeat;
+    float: left;
+    height: 32px;
+    width: 32px;
+}
+.t12 {
+    background-image: url("img/grass0.png");
+}
+.t13 {
+    background-image: url("img/grass1.png");
+}
+.t14 {
+    background-image: url("img/grass2.png");
+}
+.t15 {
+    background-image: url("img/grass_flowers_blue3.png");
+}
+.t16 {
+    background-image: url("img/grass_flowers_blue3.png");
+}
+.t17 {
+    background-image: url("img/grass_flowers_blue3.png");
+}
+.t18 {
+    background-image: url("img/grass_n.png");
+}
+.t19 {
+    background-image: url("img/grass_nw.png");
+}
+.t20 {
+    background-image: url("img/grass_w.png");
+}
+.t21 {
+    background-image: url("img/grass_full.png");
+}
+.t22 {
+    background-image: url("img/grass_sw.png");
+}
+.t23 {
+    background-image: url("img/grass_s.png");
+}
+.b11 {
+    background-image: url("img/dngn_metal_wall.png");
+}
+.b12 {
+    background-image: url("img/crystal_wall02.png");
+}
+.b13 {
+    background-image: url("img/dngn_mirrored_wall.png");
+}
+.b14 {
+    background-color: #008000;
+    background-image: url("img/dngn_green_crystal_wall.png");
+}
+.b17 {
+    background-color: #BBBBBB;
+    background-image: url("img/dngn_open_door.png");
+}
+.b18 {
+    background-image: url("img/dngn_closed_door.png");
+}
+.b19 {
+    background-image: url("img/brick_brown-vines1.png");
+}

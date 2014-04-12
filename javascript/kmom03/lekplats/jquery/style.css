@@ -1,0 +1,291 @@
+body {
+    margin: 8px auto;
+    max-width: 940px;
+    font-family: Arial, Verdana, sans-serif;
+}
+
+#flash {
+    background-color: rgba(238, 238, 238, 0.95);
+    border: 1px solid #999999;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px 5px #555555;
+    margin: 2em auto;
+    min-height: 10em;
+    padding: 1em;
+}
+
+#footer {
+    border-top: 1px solid #999999;
+    color: #999999;
+    font-size: smaller;
+    margin-top: 22px;
+    padding-top: 0.5em;
+}
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+ 
+.clearfix {
+    display: inline-block;
+}
+ 
+html[xmlns] .clearfix {
+    display: block;
+}
+ 
+* html .clearfix {
+    height: 1%;
+}
+
+table {
+    margin-bottom: 1.375em;
+    width: 100%;
+}
+caption {
+    font-style: italic;
+    text-align: left;
+}
+thead {
+    border-bottom: 2px solid #222222;
+}
+th {
+    font-weight: bold;
+    text-align: left;
+    vertical-align: bottom;
+}
+th, td {
+    padding: 5px 10px 5px 5px;
+}
+tbody tr {
+    border-bottom: 1px solid #EEEEEE;
+}
+tbody tr:hover {
+    color: #000000;
+}
+tfoot {
+    font-style: italic;
+}
+
+.boxes {
+    border: 2px solid #BDA36F;
+    background: #D1BC87;
+    width: 150px;
+    padding: 20px;
+    float: left;
+    margin: 20px;
+}
+
+.box-img {
+    width: 100px;
+}
+
+.boxes h2 {
+    color: #715B3A;
+    font-family: "Courier New", Courier, monospace;
+    font-size: 2.5em;
+    float: right;
+}
+
+.big-boxes {
+    width: 80%;
+    background: #D1BC87;
+    border: 2px solid #BDA36F;
+    padding: 20px;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    float: left;
+}
+
+.big-boxes h4, p, label, a {
+    color: #715B3A;
+}
+
+.close a {
+    float: right;
+    color: #715B3A;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+/*box1*/
+#pigs{
+    width: 70%;
+}
+
+.piggy {
+    background: #F5D3D2;
+    border: 10px solid #F5D3D2;
+}
+
+/*box2*/
+.smaller {
+    width: 30%;
+}
+
+.normal {
+    width: 70%;
+}
+
+.piggy2 {
+    background: #F5D3D2;
+}
+
+/*box3*/
+#plate {
+    width: 400px;
+    height: 300px;
+    background: #fff;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 4px solid #999;
+}
+
+#bacon-area {
+    width: 300px;
+    height: 200px;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    border: 3px solid #999;
+    margin: auto;
+    margin-top: 47px;
+}
+
+.bacon {
+    width: 100px;
+    height: 70px;
+    background-image: url(bacon.png);
+    background-size: contain;
+    float: left;
+}
+
+/*box4*/
+#running-pig2 {
+    float: right;
+}
+
+/*box5*/
+#box5-content img {
+    width: 300px;
+    margin: 10px;
+}
+
+.animate {
+    width: 320px;
+    float: left;
+}
+
+.animate p {
+    margin-left: 150px;
+    text-decoration: underline;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/*box6*/
+#muddy {
+    width: 300px;
+}
+
+#overlay {
+position:fixed;
+top:0;
+left:0;
+height:100%;
+width:100%;
+background:black url(loader.gif) no-repeat scroll center center;
+background-size: 100px;
+}
+
+#lightbox {
+position:fixed;
+}
+
+/*box7*/
+
+#gallery{
+    background: #715B3A;
+    width: 600px;
+    margin: auto;
+}
+
+#gallery-big{
+    width: 400px;
+    height: 400px;
+    margin: 10px auto;
+    padding: 20px;
+}
+
+#gallery-big img {
+    width: 400px;
+}
+
+#gallery-small {
+    width: 600px;
+}
+
+#gallery-small img {
+    width: 50px;
+    float: left;
+    margin: 5px;
+}
+
+#gallery-small img:hover {
+    border: 2px solid #BDA36F;
+}
+
+.gallery-selected {
+    border: 2px solid #BDA36F;
+}
+
+/*box8*/
+
+#slideshow img {
+    width: 500px;
+    position: absolute;
+    /*display: none;*/
+}
+
+#slideshow {
+    width: 500px;
+    height: 333px;
+    overflow: hidden;
+}
+
+/*boxp*/
+.example {
+  position: relative;
+}
+
+.mud-pigs {
+  width: 500px;
+  
+}
+
+#imgInfo {
+  background: none repeat scroll 0 0 rgba(0, 0, 0, 0.5);    
+  color: #999;
+  display: block;
+  position: absolute;
+  top: 0px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: small;
+  padding-right: 5px;
+}
+
+#imgInfo p {
+  margin: 0px;
+}
+
+
+
