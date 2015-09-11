@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset=utf-8>
+	<title>Funny face</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter|Average+Sans' rel='stylesheet' type='text/css'>
+</head>
+<body>
+<div id="container">
+<header>
+    <h1>Funny face</h1>
+</header>
+<aside>
+	<div id="hair">
+		<div class="menuheader"> <h1>Hår</h1><img class="menu_icon" src="img/hair_icon.png"></div>
+		<div id="contentHair" class="menucontent">
+            <p>Klicka och dra ut den frisyr du vill använda.</p>
+			
+			<div id="thumbs">
+				<img class="draggable" src="img/hair1.png" alt="hair">
+				<img class="draggable" src="img/hair2.png" alt="hair">
+				<img class="draggable" src="img/hair3.png" alt="hair">
+				<img class="draggable" src="img/hair4.png" alt="hair">
+				<img class="draggable" src="img/hair5.png" alt="hair">
+				<img class="draggable" src="img/hair6.png" alt="hair">
+				
+			</div>	
+		</div>
+	</div>
+	<div id="eyes">
+		<div class="menuheader"> <h1>Ögon</h1><img class="menu_icon" src="img/eyes_icon.png"></div>
+		<div id="contentEyes" class="menucontent">
+            <p>Klicka och dra ut de ögon du vill använda.</p>
+			
+			<div id="thumbs">
+				<img class="draggable" src="img/eyes1.png" alt="eyes">
+				<img class="draggable" src="img/eyes2.png" alt="eyes">
+				<img class="draggable" src="img/eyes3.png" alt="eyes">
+				
+			</div>	
+		</div>
+	</div>
+	<div id="mouths">
+		<div class="menuheader"> <h1>Mun</h1><img class="menu_icon" src="img/mouth_icon.png"></div>
+		<div id="contentMouths" class="menucontent">
+            <p>Klicka och dra ut den mun du vill använda.</p>
+			
+			<div id="thumbs">
+				<img class="draggable" src="img/mouth1.png" alt="mouth">
+				<img class="draggable" src="img/mouth2.png" alt="mouth">
+				<img class="draggable" src="img/mouth3.png" alt="mouth">				
+			</div>	
+		</div>
+	</div>
+	<div id="accesories">
+		<div class="menuheader"> <h1>Accesoarer</h1><img class="menu_icon" src="img/hat_icon.png"></div>
+		<div id="contentAccesories" class="menucontent">
+            <p>Klicka och dra ut den accesoar du vill använda. Du kan välja flera olika om du vill.</p>
+			
+			<div id="thumbs">
+				<img class="draggable" src="img/moustache1.png" alt="moustache">
+				<img class="draggable" src="img/sombrero.png" alt="sombrero">				
+			</div>	
+		</div>
+	</div>
+	<div id="help">
+		<div class="menuheader"> <h1>Kom igång</h1><img class="menu_icon" src="img/info_icon.png"></div>
+		<div id="contentHelp" class="menucontent">
+            <p>Klicka på någon av menyerna för att öppna dem och se vilka delar du har att välja på. </p>
+            <p>Klicka och dra sedan ut den grej du vill placera på ansiktet.</p> 
+            <p>Om du vill ta bort något drar du det till papperskorgen.</p>
+		</div>
+	</div>
+
+</aside>
+
+<article>
+	<div id="face">
+		<img class="face" src="img/face.png" alt="face">
+        <div id="trash"></div>
+        <div id="trash_talk"><p>Dra de delar du inte vill ha kvar hit för att kasta bort dem.</p></div>
+        <div id="reload"><a href="#">Börja om</a></div>
+	</div>
+	<div id="pControl" class="animated bounceInDown">
+            <h3>Nu har du spelat i 10 minuter!</h3><h3> Be en vuxen om hjälp om du vill fortsätta</h3>
+            <h2>Lös den här uppgiften för att stänga rutan och spela vidare: </h2>
+            <p id="math"> = <input id="input" type="text" name="input" value=""></p>
+            <div id="center"><button id="pControlSend">Rätta</button></div>
+        </div>
+</article>
+
+</div>  <!--container-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+<script src="funnyface.js"></script>
+
+</body>
+</html>
