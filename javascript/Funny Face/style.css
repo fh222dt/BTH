@@ -76,6 +76,8 @@ aside{
     float: left;
 }
 
+/*---------------------------------------------menus--------------------------------------*/
+
 .menucontent {	
 	display: none;
     margin: 10px 10px 10px 10px;
@@ -107,8 +109,6 @@ aside{
     margin-bottom: 10px;
     }
 
-
-/*---------------------------------------------menus--------------------------------------*/
 #hair, #eyes, #mouths, #accesories, #help {
     border: 2px solid #6a6a6a;
 }
@@ -271,22 +271,6 @@ h3 {
     z-index: 4500;
 }
 
-    /*#pControl:before {
-        content: '';
-        position: absolute;
-        left: 15px;
-        top: -10px;
-        width: 0px;
-        height: 0px;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 10px solid #bba1bf;
-        -webkit-transform: skewX(45deg);
-        -moz-transform: skewX(45deg);
-        -ms-transform: skewX(45deg);
-        -o-transform: skewX(45deg);
-    }*/
-
     #pControl h3 {
         margin: 20px;
         font-family: 'Architects Daughter', cursive;
@@ -301,24 +285,24 @@ h3 {
         font-size: 1.4em;
         text-align: center;
     }
-    #math {
-        font-size: 3em;
-        color: #6a6a6a;
-        text-align: center;
-    }
-    #math input {
-        padding: 20px;
-        width: 40px;
-    }
-    #center {
-        text-align: center;
-    }
+#math {
+    font-size: 3em;
+    color: #6a6a6a;
+    text-align: center;
+}
+#math input {
+    padding: 20px;
+    width: 40px;
+}
+#center {
+    text-align: center;
+}
 
-    #pControlSend {
-        margin-top: 30px;
-        height: 3em;
-        width: 5.5em;
-    }
+#pControlSend {
+    margin-top: 30px;
+    height: 3em;
+    width: 5.5em;
+}
 
 /*----------------------------------------------print--------------------------------------*/
 
@@ -332,7 +316,7 @@ h3 {
 }*/
 
 
-/*---------------------------------bouncing effects to parent control from --------------*/
+/*------------------------bouncing effects to parent control from Daniel Eden--------------*/
 .animated{-webkit-animation-fill-mode:both;-moz-animation-fill-mode:both;-ms-animation-fill-mode:both;-o-animation-fill-mode:both;animation-fill-mode:both;-webkit-animation-duration:1s;-moz-animation-duration:1s;-ms-animation-duration:1s;-o-animation-duration:1s;animation-duration:1s;}.animated.hinge{-webkit-animation-duration:2s;-moz-animation-duration:2s;-ms-animation-duration:2s;-o-animation-duration:2s;animation-duration:2s;}@-webkit-keyframes bounceInDown {
     0% {
         opacity: 0;
